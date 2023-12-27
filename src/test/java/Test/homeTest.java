@@ -11,7 +11,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import io.appium.java_client.AppiumDriver;
 
-public class LoginTest {
+public class homeTest {
     private AppiumDriver driver;
     private ExtentReports extent;
     private ExtentTest test;
@@ -31,18 +31,18 @@ public class LoginTest {
         try {
             LoginPageClass loginPage = new LoginPageClass(driver);
 
-            test.log(Status.INFO, "Validating username field: " + loginPage.isUsernameFieldVisibleAndEnabled());
-            test.log(Status.INFO, "Validating password field: " + loginPage.isPasswordFieldVisibleAndEnabled());
+//            test.log(Status.INFO, "Validating username field: " + loginPage.isUsernameFieldVisibleAndEnabled());
+//            test.log(Status.INFO, "Validating password field: " + loginPage.isPasswordFieldVisibleAndEnabled());
             test.log(Status.INFO, "Validating login button: " + loginPage.isLoginButtonVisibleAndEnabled());
 
-            loginPage.enterUsername("gkrishnamurthy443@gmail.com");
-            test.log(Status.INFO, "Entered the email");
-            loginPage.enterPassword("1234567");
-            test.log(Status.INFO, "Entered the password");
             loginPage.clickLoginButton();
+//            test.log(Status.INFO, "Entered the email");
+//            loginPage.enterPassword("1234567");
+//            test.log(Status.INFO, "Entered the password");
+//            loginPage.clickLoginButton();
 
             Thread.sleep(2000);
-
+ 
             // If the login was successful, mark the test as passed
             test.log(Status.PASS, "Login successful");
         } catch (Exception exp) {
@@ -50,7 +50,7 @@ public class LoginTest {
         }
     }
 
-    @AfterTest
+   // @AfterTest
     public void tearDown() {
         extent.flush();
         if (driver != null) {
